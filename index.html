@@ -602,13 +602,416 @@ footer a{color:#aeb9ca;text-decoration:none}
 }
 </style>
 
+
+<!-- PREMIUM VISUAL LAYER — ADDITIVE ONLY
+     This layer intentionally overrides the existing styling without deleting existing sections/content. -->
+<style>
+/* ===== PREMIUM BRAND / NAV ===== */
+nav{
+  height:82px;
+  background:rgba(255,255,255,.88);
+  border-bottom:1px solid rgba(16,33,59,.08);
+  box-shadow:0 8px 30px rgba(16,33,59,.05);
+}
+.logo{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:58px;
+  height:42px;
+  padding:0;
+  font-size:24px;
+  font-weight:950;
+  letter-spacing:-.10em;
+  color:#10213b;
+  background:linear-gradient(135deg,#ffffff,#eef4ff);
+  border:1px solid #d8e2f0;
+  border-radius:13px;
+  box-shadow:0 8px 24px rgba(30,70,130,.10);
+  overflow:hidden;
+}
+.logo::before{
+  content:"";
+  position:absolute;
+  width:54px;
+  height:3px;
+  left:1px;
+  top:19px;
+  background:linear-gradient(90deg,#4f83ee,#8f6dff);
+  transform:rotate(-28deg);
+  border-radius:99px;
+  opacity:.9;
+}
+.logo::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:10px;
+  border:1px solid rgba(79,131,238,.10);
+  pointer-events:none;
+}
+.nav-links{gap:30px}
+.nav-links a{
+  position:relative;
+  font-weight:650;
+  color:#31435f;
+}
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-8px;
+  height:2px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#4f83ee,#8f6dff);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .25s ease;
+}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+/* ===== HERO PREMIUM FINISH ===== */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 12%,rgba(93,139,255,.28),transparent 25%),
+    radial-gradient(circle at 10% 92%,rgba(98,77,194,.18),transparent 30%),
+    linear-gradient(135deg,#081327 0%,#0d1b35 55%,#132546 100%);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  right:-180px;
+  top:-180px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.018);
+  pointer-events:none;
+}
+.hero-grid{gap:76px}
+.eyebrow{
+  background:rgba(255,255,255,.045);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 8px 24px rgba(0,0,0,.08);
+}
+h1{letter-spacing:-.075em}
+h1 span{
+  background:linear-gradient(100deg,#78a7ff 0%,#9a7dff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-lead{font-size:21px}
+.hero-quote{border-left-color:#78a7ff}
+
+.actions .btn-primary{
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
+.actions .btn-outline{
+  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.025);
+  backdrop-filter:blur(10px);
+}
+.actions .btn-blue{
+  min-width:190px;
+  background:linear-gradient(135deg,#78a7ff 0%,#8c72ff 100%);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 14px 32px rgba(76,104,230,.32);
+}
+.actions .btn-blue::before{
+  content:"↓";
+  width:19px;
+  height:19px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:6px;
+  color:#fff;
+}
+.actions .btn-blue:hover{
+  background:linear-gradient(135deg,#8bb4ff 0%,#a088ff 100%);
+  transform:translateY(-2px);
+}
+
+.profile-card{
+  position:relative;
+  border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.045));
+  box-shadow:0 30px 80px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(16px);
+}
+.profile-card::before{
+  content:"";
+  position:absolute;
+  width:110px;
+  height:110px;
+  right:-45px;
+  top:-45px;
+  border-radius:50%;
+  background:rgba(124,158,255,.12);
+  filter:blur(2px);
+}
+
+/* ===== PREMIUM SOCIAL PROOF ===== */
+#recommendations{
+  position:relative;
+  padding-top:112px;
+  padding-bottom:96px;
+  background:
+    radial-gradient(circle at 82% 8%,rgba(117,156,255,.16),transparent 25%),
+    radial-gradient(circle at 12% 70%,rgba(129,102,220,.08),transparent 28%),
+    linear-gradient(180deg,#f8fbff 0%,#f2f6fc 100%);
+}
+#recommendations::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.75) 48%,transparent 100%);
+  opacity:.45;
+}
+.recommendations-head{
+  position:relative;
+  z-index:1;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.65fr);
+  gap:70px;
+  align-items:end;
+  margin-bottom:48px;
+}
+.recommendations-head h2{
+  font-size:clamp(42px,5vw,70px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  max-width:820px;
+  margin-top:12px;
+}
+.recommendations-head h2::after{
+  content:"";
+  display:block;
+  width:78px;
+  height:4px;
+  margin-top:20px;
+  border-radius:99px;
+  background:linear-gradient(90deg,#4f83ee,#8c72ff);
+}
+.recommendations-note{
+  font-size:16px;
+  line-height:1.8;
+  color:#60728f;
+}
+.recommendations-carousel-shell{
+  position:relative;
+  z-index:2;
+}
+.recommendation-viewport{
+  padding:18px 72px 28px;
+}
+.recommendation-track{
+  gap:28px;
+  animation:none !important;
+}
+.recommendation-card{
+  width:calc((100% - 56px) / 3);
+  flex:0 0 calc((100% - 56px) / 3);
+  border:1px solid rgba(155,174,204,.42);
+  border-radius:28px;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 20px 55px rgba(37,66,111,.10);
+  overflow:hidden;
+  transform:translateY(0);
+}
+.recommendation-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(79,131,238,.42);
+  box-shadow:0 30px 70px rgba(37,66,111,.16);
+}
+.recommendation-image-wrap{
+  height:390px;
+  padding:14px;
+  background:linear-gradient(145deg,#f8fbff,#edf3fa);
+  border-bottom:1px solid #e7edf5;
+}
+.recommendation-image-wrap img{
+  border-radius:18px;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 18px rgba(32,55,88,.08));
+}
+.recommendation-meta{
+  padding:20px 22px 22px;
+  background:rgba(255,255,255,.98);
+}
+.recommendation-meta strong{
+  font-size:17px;
+  color:#122541;
+}
+.recommendation-meta span{
+  color:#71829c;
+  font-size:13px;
+}
+.recommendation-controls{inset:0 8px}
+.recommendation-arrow{
+  width:52px;
+  height:52px;
+  border:1px solid rgba(136,158,190,.40);
+  background:rgba(255,255,255,.96);
+  color:#183052;
+  font-size:29px;
+  box-shadow:0 12px 30px rgba(27,56,98,.14);
+  backdrop-filter:blur(12px);
+}
+.recommendation-arrow:hover{
+  background:#fff;
+  border-color:#86a9e8;
+  box-shadow:0 16px 36px rgba(52,92,153,.20);
+}
+.recommendations-hint{
+  position:relative;
+  z-index:1;
+  margin-top:22px;
+  color:#71829a;
+  font-size:13px;
+  letter-spacing:.02em;
+}
+
+/* Premium recommendation count / visual separator */
+#recommendations .section-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(79,131,238,.09);
+  border:1px solid rgba(79,131,238,.18);
+  color:#3569bd;
+}
+#recommendations .section-kicker::before{content:"✦";font-size:12px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  .recommendation-card{
+    width:calc((100% - 28px) / 2);
+    flex-basis:calc((100% - 28px) / 2);
+  }
+  .recommendation-image-wrap{height:370px}
+  .recommendations-head{gap:35px}
+}
+@media(max-width:900px){
+  nav{height:74px}
+  .recommendations-head{grid-template-columns:1fr;gap:18px}
+  .recommendations-head h2{max-width:700px}
+  .recommendation-viewport{padding-left:58px;padding-right:58px}
+  .recommendation-card{
+    width:calc((100% - 24px) / 2);
+    flex-basis:calc((100% - 24px) / 2);
+  }
+}
+@media(max-width:600px){
+  .logo{width:52px;height:39px;font-size:21px}
+  .hero{padding-top:58px}
+  .recommendations-head h2{font-size:43px}
+  .recommendation-viewport{padding-left:44px;padding-right:44px}
+  .recommendation-card{width:100%;flex-basis:100%;border-radius:22px}
+  .recommendation-image-wrap{height:350px;padding:10px}
+  .recommendation-arrow{width:42px;height:42px;font-size:23px}
+}
+@media(prefers-reduced-motion:reduce){
+  .recommendation-track{transition:none !important}
+}
+</style>
+
+
+<style>
+/* ===== V5 PREMIUM EXECUTIVE BRAND + SOCIAL PROOF ===== */
+nav{height:92px;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(20,43,78,.08);box-shadow:0 8px 35px rgba(21,45,82,.06)}
+.nav-inner{gap:22px}
+.brand-lockup{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:max-content}
+.brand-mark{position:relative;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#f8fbff,#e9f1ff);border:1px solid #d7e3f4;box-shadow:0 10px 24px rgba(49,88,151,.12);overflow:hidden}
+.brand-mark::after{content:"";position:absolute;width:32px;height:3px;bottom:8px;left:11px;border-radius:999px;background:linear-gradient(90deg,#2d6cdf,#765cff)}
+.brand-mark span{position:absolute;font-weight:950;line-height:1;letter-spacing:-.14em;font-size:26px;color:#12305b}
+.brand-mark span:first-child{transform:translate(-6px,-3px);opacity:.96}
+.brand-mark span:last-child{transform:translate(7px,4px);color:#4f83ee;opacity:.95}
+.brand-copy{display:flex;flex-direction:column;line-height:1.05}
+.brand-copy strong{font-size:18px;letter-spacing:-.035em;color:#10213b}
+.brand-copy small{margin-top:7px;font-size:9px;letter-spacing:.27em;font-weight:800;color:#3569bd}
+.logo{display:none!important}
+.nav-links{flex:1;justify-content:center;gap:28px}
+.nav-links a{font-weight:650}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;text-decoration:none;background:#10213b;color:#fff;font-size:17px;font-weight:850;box-shadow:0 8px 18px rgba(16,33,59,.14)}
+.nav-icon.mail{font-size:18px;background:#eef4ff;color:#234b89;border:1px solid #d6e2f4}
+.nav-resume{height:44px;padding:0 18px;display:inline-flex;align-items:center;gap:9px;border-radius:13px;text-decoration:none;color:#fff;font-weight:800;background:linear-gradient(135deg,#236bd8 0%,#633eea 100%);box-shadow:0 12px 28px rgba(70,76,220,.25)}
+.nav-resume span{font-size:20px;line-height:1}
+.nav-resume:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(70,76,220,.32)}
+
+#recommendations{padding-top:92px;padding-bottom:72px;background:radial-gradient(circle at 85% 10%,rgba(116,164,255,.26),transparent 28%),radial-gradient(circle at 12% 70%,rgba(128,104,225,.11),transparent 30%),linear-gradient(180deg,#f7faff 0%,#eef4fb 100%);overflow:hidden}
+#recommendations::before{background:radial-gradient(circle at 50% 20%,rgba(255,255,255,.9),transparent 46%);opacity:.7}
+.recommendations-head{grid-template-columns:minmax(0,1.15fr) minmax(320px,.6fr);gap:72px;margin-bottom:38px}
+#recommendations .section-kicker{padding:9px 15px;background:rgba(76,128,235,.10);border:1px solid rgba(76,128,235,.18);color:#2e61b5;box-shadow:0 8px 22px rgba(55,102,178,.07)}
+#recommendations .section-kicker::before{content:"✦"}
+.recommendations-head h2{font-size:clamp(43px,5.3vw,72px);line-height:.98;max-width:900px;margin:15px 0 0;color:#10213b}
+.recommendations-head h2::after{display:none}
+.recommendations-head h2 span{background:linear-gradient(90deg,#2f72e6,#6848e8);-webkit-background-clip:text;background-clip:text;color:transparent}
+.recommendations-note{font-size:15px;line-height:1.75;color:#60738f;padding-bottom:6px}
+.recommendations-note strong{color:#3b5d88;font-weight:750}
+.recommendations-carousel-shell{position:relative;margin-top:4px}
+.recommendation-viewport{padding:18px 84px 28px;overflow:hidden}
+.recommendation-track{display:flex;gap:24px;will-change:transform;transition:transform .6s cubic-bezier(.22,.75,.2,1);align-items:stretch}
+.recommendation-card{width:calc((100% - 48px)/3);flex:0 0 calc((100% - 48px)/3);border-radius:25px;background:rgba(255,255,255,.97);border:1px solid rgba(143,166,199,.38);box-shadow:0 22px 55px rgba(34,65,111,.12);overflow:hidden;text-decoration:none;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.recommendation-card:hover{transform:translateY(-7px);border-color:rgba(65,119,222,.45);box-shadow:0 30px 70px rgba(34,65,111,.18)}
+.recommendation-card.is-active{transform:translateY(-5px);box-shadow:0 28px 72px rgba(48,92,164,.20);border-color:rgba(72,126,229,.48)}
+.recommendation-image-wrap{height:430px;padding:16px;background:linear-gradient(145deg,#f9fbff,#edf3fa);border-bottom:1px solid #e4ebf4;display:flex;align-items:center;justify-content:center}
+.recommendation-image-wrap img{width:100%;height:100%;object-fit:contain;border-radius:16px;filter:drop-shadow(0 12px 22px rgba(29,54,91,.10));background:#fff}
+.recommendation-meta{padding:17px 20px 19px;background:rgba(255,255,255,.98);display:flex;flex-direction:column}
+.recommendation-meta strong{font-size:16px;color:#122541;line-height:1.35}
+.recommendation-meta span{margin-top:3px;font-size:12px;color:#6d7f98}
+.recommendation-meta em{margin-top:9px;font-style:normal;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#4b7fd5}
+.recommendation-controls{inset:0 26px;pointer-events:none;z-index:5}
+.recommendation-arrow{pointer-events:auto;width:54px;height:54px;border-radius:50%;border:1px solid rgba(130,153,187,.35);background:rgba(255,255,255,.95);color:#183052;font-size:26px;box-shadow:0 12px 30px rgba(27,56,98,.15);backdrop-filter:blur(12px)}
+.recommendation-arrow:hover{background:#fff;border-color:#78a0e8;transform:scale(1.04)}
+.recommendation-bottom{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:3px}
+.carousel-dots{display:flex;gap:8px;align-items:center}
+.carousel-dot{width:9px;height:9px;border-radius:50%;background:#c9d5e7;border:0;padding:0;cursor:pointer;transition:.25s}
+.carousel-dot.active{width:24px;border-radius:99px;background:linear-gradient(90deg,#2d72e4,#6549e8)}
+.auto-note{display:inline-flex;align-items:center;gap:8px;color:#5d7393;font-size:12px;background:rgba(255,255,255,.72);border:1px solid #dde6f2;border-radius:999px;padding:7px 12px}
+.pause-dot{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#2e73df;color:#fff;font-size:10px;font-weight:900}
+.recommendation-stats{margin-top:36px;padding:20px 12px;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(255,255,255,.80);border:1px solid rgba(181,198,220,.48);border-radius:24px;box-shadow:0 18px 45px rgba(40,72,118,.08);backdrop-filter:blur(14px)}
+.recommendation-stats div{padding:3px 20px;border-right:1px solid #dfe7f2;display:flex;flex-direction:column;justify-content:center}
+.recommendation-stats div:last-child{border-right:0}
+.recommendation-stats b{font-size:22px;line-height:1.15;color:#102d59;letter-spacing:-.03em}
+.recommendation-stats span{font-size:11px;color:#687c99;margin-top:4px}
+
+@media(max-width:1150px){.nav-links{gap:18px}.nav-resume{padding:0 13px}.recommendation-image-wrap{height:380px}.recommendation-card{width:calc((100% - 24px)/2);flex-basis:calc((100% - 24px)/2)}.recommendation-stats{grid-template-columns:repeat(3,1fr)}.recommendation-stats div:nth-child(3){border-right:0}.recommendation-stats div:nth-child(4),.recommendation-stats div:nth-child(5){margin-top:15px}}
+@media(max-width:900px){nav{height:78px}.brand-copy{display:none}.nav-links{display:none}.nav-links.open{display:flex;position:absolute;left:4%;right:4%;top:70px;background:#fff;padding:18px;border-radius:16px;box-shadow:0 18px 45px rgba(25,51,88,.15);flex-direction:column;align-items:flex-start;gap:14px}.menu{display:block}.nav-actions{margin-left:auto}.recommendations-head{grid-template-columns:1fr;gap:16px}.recommendation-viewport{padding-left:58px;padding-right:58px}}
+@media(max-width:620px){.brand-mark{width:46px;height:46px;border-radius:14px}.brand-mark span{font-size:22px}.nav-actions .nav-icon{display:none}.nav-resume{height:40px;font-size:12px;padding:0 12px}.recommendations-head h2{font-size:42px}.recommendation-viewport{padding-left:40px;padding-right:40px}.recommendation-card{width:100%;flex-basis:100%}.recommendation-image-wrap{height:360px;padding:11px}.recommendation-controls{inset:0 8px}.recommendation-arrow{width:44px;height:44px;font-size:21px}.recommendation-stats{grid-template-columns:1fr 1fr;padding:15px}.recommendation-stats div{border-right:0;padding:10px 12px}.recommendation-stats div:nth-child(odd){border-right:1px solid #dfe7f2}.recommendation-stats div:nth-child(n+3){border-top:1px solid #dfe7f2}.recommendation-bottom{flex-wrap:wrap}}
+
+.manual-carousel-note{
+  color:#71829c;
+  font-size:12px;
+  letter-spacing:.02em;
+  margin-left:10px;
+}
+@media(max-width:620px){
+  .manual-carousel-note{
+    width:100%;
+    text-align:center;
+    margin:4px 0 0;
+  }
+}
+</style>
+
 </head>
 
-<body>
+<body id="top">
 
 <nav>
   <div class="container nav-inner">
-    <div class="logo">DB.</div>
+    <a class="brand-lockup" href="#top" aria-label="Diptangshu Banerjee home">
+      <span class="brand-mark" aria-hidden="true"><span>D</span><span>B</span></span>
+      <span class="brand-copy"><strong>Diptangshu Banerjee</strong><small>COMMERCIAL GROWTH LEADER</small></span>
+    </a>
     <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
     <div class="nav-links" id="navLinks">
       <a href="#about" onclick="closeMenu()">About</a>
@@ -617,6 +1020,10 @@ footer a{color:#aeb9ca;text-decoration:none}
       <a href="#leadership" onclick="closeMenu()">Leadership</a>
       <a href="#recommendations" onclick="closeMenu()">Social Proof</a>
       <a href="#contact" onclick="closeMenu()">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-icon" href="https://www.linkedin.com/in/diptangshubanerjee/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      <a class="nav-icon mail" href="mailto:diptangshu.banerjee.in@gmail.com" aria-label="Email">✉</a>
     </div>
   </div>
 </nav>
@@ -848,131 +1255,91 @@ footer a{color:#aeb9ca;text-decoration:none}
 </section>
 
 
-<!-- SOCIAL PROOF — ADDED; upload the 8 PNG files to /recommendations/ on GitHub. -->
+<!-- SOCIAL PROOF — PREMIUM VISUAL FORMAT -->
 <section id="recommendations">
   <div class="container">
     <div class="recommendations-head">
       <div>
         <span class="section-kicker">Social Proof</span>
-        <h2>What people I've worked with say.</h2>
+        <h2>What people I've worked with <span>say.</span></h2>
       </div>
       <p class="recommendations-note">
-        Selected LinkedIn recommendations from clients, colleagues and collaborators across my professional journey.
-        Hover over the strip to pause. Click any recommendation to view the full image.
+        Selected LinkedIn recommendations from clients, colleagues and collaborators across my professional journey.<br>
+        <strong>Click any recommendation to open the full image.</strong>
       </p>
     </div>
   </div>
 
   <div class="recommendations-carousel-shell">
     <div class="recommendation-controls" aria-label="Recommendation controls">
-      <button class="recommendation-arrow recommendation-prev" type="button" aria-label="Previous recommendations">‹</button>
-      <button class="recommendation-arrow recommendation-next" type="button" aria-label="Next recommendations">›</button>
+      <button class="recommendation-arrow recommendation-prev" type="button" aria-label="Previous recommendations">←</button>
+      <button class="recommendation-arrow recommendation-next" type="button" aria-label="Next recommendations">→</button>
     </div>
     <div class="recommendation-viewport" aria-label="LinkedIn recommendations">
-    <div class="recommendation-track">
-      <a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/holly-brown.png" alt="LinkedIn recommendation from Holly Brown" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Holly Brown</strong>Upload <code>holly-brown.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/buddy-peacock.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/buddy-peacock.png" alt="LinkedIn recommendation from Buddy Peacock" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Buddy Peacock</strong>Upload <code>buddy-peacock.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Buddy Peacock, MCCT, PMP, CSM, SAMC</strong><span>Advisory Board Member • Client</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/ruth-kim-moebes.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/ruth-kim-moebes.png" alt="LinkedIn recommendation from Ruth Kim Moebes" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Ruth Kim Moebes</strong>Upload <code>ruth-kim-moebes.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Ruth Kim Moebes</strong><span>Senior Director, Integrated Marketing Operations</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/jim-pruitt.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/jim-pruitt.png" alt="LinkedIn recommendation from Jim Pruitt" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Jim Pruitt</strong>Upload <code>jim-pruitt.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Jim Pruitt, SMC, SPOC, ITIL</strong><span>Former teammate • Professional Training &amp; Education</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/lynne-warren.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/lynne-warren.png" alt="LinkedIn recommendation from Lynne Warren" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Lynne Warren</strong>Upload <code>lynne-warren.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Lynne Warren</strong><span>Former colleague • State Farm</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/corey-bailey.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/corey-bailey.png" alt="LinkedIn recommendation from Corey Bailey" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Corey Bailey</strong>Upload <code>corey-bailey.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Corey Bailey, PMP, ITILv3, SMC, SAMC</strong><span>Operations Director / Project Management / Training</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/magaline-harvey.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/magaline-harvey.png" alt="LinkedIn recommendation from Magaline Harvey" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Magaline Harvey</strong>Upload <code>magaline-harvey.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Magaline Harvey</strong><span>Project Queen • Scrum Master • Agile Consultant</span></div>
-      </a>
-
-      <a class="recommendation-card" href="recommendations/alexis-carnegie.png" target="_blank" rel="noopener">
-        <div class="recommendation-image-wrap">
-          <img src="recommendations/alexis-carnegie.png" alt="LinkedIn recommendation from Alexis Carnegie" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-          <div class="recommendation-fallback"><div><strong>Alexis Carnegie</strong>Upload <code>alexis-carnegie.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
-        </div>
-        <div class="recommendation-meta"><strong>Alexis Carnegie PMP, PMI-ACP</strong><span>LCC Business School Academic Advisor</span></div>
-      </a>
-
-      <!-- Duplicate set for seamless scrolling -->
-      <a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/holly-brown.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/buddy-peacock.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/buddy-peacock.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Buddy Peacock, MCCT, PMP, CSM, SAMC</strong><span>Advisory Board Member • Client</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/ruth-kim-moebes.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/ruth-kim-moebes.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Ruth Kim Moebes</strong><span>Senior Director, Integrated Marketing Operations</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/jim-pruitt.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/jim-pruitt.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Jim Pruitt, SMC, SPOC, ITIL</strong><span>Former teammate • Professional Training &amp; Education</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/lynne-warren.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/lynne-warren.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Lynne Warren</strong><span>Former colleague • State Farm</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/corey-bailey.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/corey-bailey.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Corey Bailey, PMP, ITILv3, SMC, SAMC</strong><span>Operations Director / Project Management / Training</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/magaline-harvey.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/magaline-harvey.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Magaline Harvey</strong><span>Project Queen • Scrum Master • Agile Consultant</span></div>
-      </a>
-      <a class="recommendation-card" href="recommendations/alexis-carnegie.png" target="_blank" rel="noopener" aria-hidden="true">
-        <div class="recommendation-image-wrap"><img src="recommendations/alexis-carnegie.png" alt="" loading="lazy"></div>
-        <div class="recommendation-meta"><strong>Alexis Carnegie PMP, PMI-ACP</strong><span>LCC Business School Academic Advisor</span></div>
-      </a>
+      <div class="recommendation-track">
+<a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener" data-index="0">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/holly-brown.png" alt="LinkedIn recommendation from Holly Brown" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/buddy-peacock.png" target="_blank" rel="noopener" data-index="1">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/buddy-peacock.png" alt="LinkedIn recommendation from Buddy Peacock, MCCT, PMP, CSM, SAMC" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Buddy Peacock, MCCT, PMP, CSM, SAMC</strong><span>Advisory Board Member • Client</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/ruth-kim-moebes.png" target="_blank" rel="noopener" data-index="2">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/ruth-kim-moebes.png" alt="LinkedIn recommendation from Ruth Kim Moebes" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Ruth Kim Moebes</strong><span>Senior Director, Integrated Marketing Operations</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/jim-pruitt.png" target="_blank" rel="noopener" data-index="3">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/jim-pruitt.png" alt="LinkedIn recommendation from Jim Pruitt, SMC, SPOC, ITIL" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Jim Pruitt, SMC, SPOC, ITIL</strong><span>Former teammate • Professional Training & Education</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/lynne-warren.png" target="_blank" rel="noopener" data-index="4">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/lynne-warren.png" alt="LinkedIn recommendation from Lynne Warren" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Lynne Warren</strong><span>Former colleague • State Farm</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/corey-bailey.png" target="_blank" rel="noopener" data-index="5">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/corey-bailey.png" alt="LinkedIn recommendation from Corey Bailey, PMP, ITILv3, SMC, SAMC" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Corey Bailey, PMP, ITILv3, SMC, SAMC</strong><span>Operations Director / Project Management / Training</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/magaline-harvey.png" target="_blank" rel="noopener" data-index="6">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/magaline-harvey.png" alt="LinkedIn recommendation from Magaline Harvey" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Magaline Harvey</strong><span>Project Queen • Scrum Master • Agile Consultant</span><em>LinkedIn recommendation</em></div>
+</a>
+<a class="recommendation-card" href="recommendations/alexis-carnegie.png" target="_blank" rel="noopener" data-index="7">
+  <div class="recommendation-image-wrap">
+    <img src="recommendations/alexis-carnegie.png" alt="LinkedIn recommendation from Alexis Carnegie PMP, PMI-ACP" loading="lazy">
+  </div>
+  <div class="recommendation-meta"><strong>Alexis Carnegie PMP, PMI-ACP</strong><span>LCC Business School Academic Advisor</span><em>LinkedIn recommendation</em></div>
+</a>
+      </div>
     </div>
   </div>
+
+  <div class="recommendation-bottom container">
+    <span class="manual-carousel-note">Use the arrows or dots to browse recommendations</span>
+    <div class="carousel-dots" aria-label="Recommendation pages"></div>
   </div>
 
-  <div class="container">
-    <p class="recommendations-hint">8 recommendations • Hover to pause • Click any card to open the original image</p>
+  <div class="container recommendation-stats">
+    <div><b>20+</b><span>LinkedIn Recommendations</span></div>
+    <div><b>50+</b><span>People Led &amp; Collaborated</span></div>
+    <div><b>16+ Years</b><span>Commercial Growth &amp; Leadership</span></div>
+    <div><b>Global</b><span>Cross-functional Impact</span></div>
+    <div><b>100%</b><span>Client &amp; Stakeholder Focus</span></div>
   </div>
 </section>
 
@@ -1011,73 +1378,38 @@ function closeMenu(){
 
 
 <script>
-/* ADDITIONAL: manual + slow auto-advance for the Social Proof carousel. */
+/* PREMIUM SOCIAL PROOF CAROUSEL */
 (function(){
-  const viewport = document.querySelector('.recommendation-viewport');
-  const track = document.querySelector('.recommendation-track');
-  const prev = document.querySelector('.recommendation-prev');
-  const next = document.querySelector('.recommendation-next');
-  if(!viewport || !track || !prev || !next) return;
-
-  const cards = Array.from(track.querySelectorAll('.recommendation-card'));
-  let index = 0;
-  let timer = null;
-  let paused = false;
-
-  function visibleCount(){
-    if(window.innerWidth <= 600) return 1;
-    if(window.innerWidth <= 1100) return 2;
-    return 3;
+  const viewport=document.querySelector('.recommendation-viewport');
+  const track=document.querySelector('.recommendation-track');
+  const prev=document.querySelector('.recommendation-prev');
+  const next=document.querySelector('.recommendation-next');
+  const dotsWrap=document.querySelector('.carousel-dots');
+  if(!viewport||!track||!prev||!next) return;
+  const cards=[...track.querySelectorAll('.recommendation-card')];
+  let index=0,paused=false;
+  function visible(){return innerWidth<=620?1:(innerWidth<=1150?2:3)}
+  function step(){const c=cards[0];return c?c.getBoundingClientRect().width+(parseFloat(getComputedStyle(track).gap)||0):0}
+  function max(){return Math.max(0,cards.length-visible())}
+  function buildDots(){
+    if(!dotsWrap)return; dotsWrap.innerHTML='';
+    const pages=max()+1;
+    for(let i=0;i<pages;i++){
+      const b=document.createElement('button'); b.className='carousel-dot'; b.type='button'; b.ariaLabel='Show recommendation set '+(i+1);
+      b.addEventListener('click',()=>{index=i;render(true)}); dotsWrap.appendChild(b);
+    }
   }
-
-  function stepSize(){
-    const card = cards[0];
-    if(!card) return 0;
-    const gap = parseFloat(getComputedStyle(track).gap) || 0;
-    return card.getBoundingClientRect().width + gap;
+  function render(animate){
+    index=Math.max(0,Math.min(index,max()));
+    track.style.transitionDuration=animate?'.6s':'0s';
+    track.style.transform=`translate3d(${-index*step()}px,0,0)`;
+    cards.forEach((c,i)=>c.classList.toggle('is-active',i===index+Math.floor((visible()-1)/2)));
+    if(dotsWrap)[...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active',i===index));
   }
-
-  function maxIndex(){
-    const uniqueCount = new Set(cards.map(card => card.getAttribute('href'))).size;
-    return Math.max(0, uniqueCount - visibleCount());
-  }
-
-  function render(animate=true){
-    index = Math.max(0, Math.min(index, maxIndex()));
-    track.style.transitionDuration = animate ? '.55s' : '0s';
-    track.style.transform = 'translateX(' + (-index * stepSize()) + 'px)';
-    prev.disabled = false;
-    next.disabled = false;
-  }
-
-  function goNext(){
-    index = index >= maxIndex() ? 0 : index + 1;
-    render(true);
-  }
-
-  function goPrev(){
-    index = index <= 0 ? maxIndex() : index - 1;
-    render(true);
-  }
-
-  function startAuto(){
-    clearInterval(timer);
-    timer = setInterval(function(){
-      if(!paused) goNext();
-    }, 8000);
-  }
-
-  prev.addEventListener('click', function(){ goPrev(); startAuto(); });
-  next.addEventListener('click', function(){ goNext(); startAuto(); });
-
-  viewport.addEventListener('mouseenter', function(){ paused = true; });
-  viewport.addEventListener('mouseleave', function(){ paused = false; });
-  viewport.addEventListener('focusin', function(){ paused = true; });
-  viewport.addEventListener('focusout', function(){ paused = false; });
-
-  window.addEventListener('resize', function(){ render(false); });
-  render(false);
-  startAuto();
+  function go(dir){index=dir>0?(index>=max()?0:index+1):(index<=0?max():index-1);render(true)}
+  prev.addEventListener('click',()=>go(-1)); next.addEventListener('click',()=>go(1));
+  addEventListener('resize',()=>{buildDots();render(false)});
+  buildDots();render(false);
 })();
 </script>
 
