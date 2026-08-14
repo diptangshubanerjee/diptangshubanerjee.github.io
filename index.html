@@ -12,16 +12,20 @@ body{font-family:Inter,Arial,sans-serif;background:#f7f8fb;color:#162033;line-he
 nav{height:78px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;position:sticky;top:0;z-index:10;border-bottom:1px solid #e7eaf0}
 .logo{font-size:24px;font-weight:800}
 nav a{margin-left:30px;text-decoration:none;color:#3b475d;font-size:16px}
-.hero{background:#0b1426;color:white;padding:90px 5.5%;display:grid;grid-template-columns:1.3fr .7fr;gap:70px;align-items:center;min-height:680px}
+.hero{background:#0b1426;color:white;padding:76px 5.5% 82px;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(360px,.82fr);gap:58px;align-items:center;min-height:700px}
+.hero-content{max-width:900px}
 .eyebrow{display:inline-block;border:1px solid #41506a;border-radius:30px;padding:8px 16px;letter-spacing:1.5px;font-size:14px;color:#bcd0f5;margin-bottom:30px}
 h1{font-size:clamp(56px,7vw,96px);line-height:.96;letter-spacing:-4px;margin-bottom:28px}
 h1 span{color:#82adff}
 .hero-copy{font-size:22px;color:#d9e0eb;max-width:850px}
 .hero-copy strong{color:#fff}
 .quote{border-left:3px solid #82adff;margin-top:30px;padding:10px 0 10px 25px;color:#cbd4e3;font-size:18px;max-width:800px}
-.profile-card{background:#182338;border:1px solid #35425a;border-radius:26px;padding:26px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
-.profile-card img{width:100%;height:430px;object-fit:cover;object-position:center 24%;border-radius:18px;display:block}
-.profile-card h2{font-size:23px;margin-top:22px}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.hero-proof span{border:1px solid #34435d;border-radius:999px;padding:7px 13px;color:#b9c8dd;font-size:13px}
+.profile-card{background:#182338;border:1px solid #35425a;border-radius:26px;padding:22px;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+.profile-card h2{font-size:22px;margin-top:20px;line-height:1.3}
+.profile-card img{width:100%;height:455px;object-fit:cover;object-position:center 20%;border-radius:18px;display:block}
+
 .profile-card p{color:#b9c6d9;margin-top:12px;font-size:17px}
 section{padding:90px 7%}
 .section-label{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#5873a5;font-weight:700;margin-bottom:12px}
@@ -44,9 +48,10 @@ footer{text-align:center;padding:25px;color:#7a8799;background:#fff}
 @media(max-width:800px){
 nav{padding:0 5%;height:auto;min-height:70px}
 nav div:last-child{display:none}
-.hero{grid-template-columns:1fr;padding:65px 6%;gap:40px}
+.hero{grid-template-columns:1fr;padding:58px 6% 65px;gap:38px;min-height:auto}
 h1{font-size:58px;letter-spacing:-2px}
 .hero-copy{font-size:19px}
+.profile-card{max-width:520px;margin:auto}
 .profile-card img{height:390px}
 .grid,.framework{grid-template-columns:1fr}
 section{padding:65px 6%}
@@ -58,7 +63,7 @@ h2.section-title{font-size:34px}
 <nav>
 <div class="logo">DB.</div>
 <div>
-<a href="#about">About</a>
+<a href="#about-me">About</a>
 <a href="#experience">Experience</a>
 <a href="#growth">Growth System</a>
 <a href="#leadership">Leadership</a>
@@ -67,11 +72,12 @@ h2.section-title{font-size:34px}
 </nav>
 
 <header class="hero" id="about">
-<div>
+<div class="hero-content">
 <div class="eyebrow">COMMERCIAL GROWTH LEADERSHIP</div>
 <h1>Diptangshu<br><span>Banerjee</span></h1>
 <p class="hero-copy">Commercial Growth Leader connecting <strong>Sales + Marketing + People + Data</strong> to build more predictable, scalable and profitable growth.</p>
 <div class="quote">“Great commercial performance is not built by managing numbers alone. It is built by developing people who can move the numbers.”</div>
+<div class="hero-proof"><span>16+ Years</span><span>Sales + Marketing</span><span>Growth + GTM</span></div>
 </div>
 <div class="profile-card">
 <img src="diptangshu-profile.jpg" alt="Diptangshu Banerjee">
@@ -79,6 +85,19 @@ h2.section-title{font-size:34px}
 <p>16+ years across EdTech, B2B SaaS, professional certification, higher education and technology-led businesses.</p>
 </div>
 </header>
+
+
+<section id="about-me">
+<div class="section-label">Who I Am</div>
+<h2 class="section-title">I build the commercial system behind growth.</h2>
+<p class="intro">My work sits at the intersection of Sales, Marketing, Revenue, People and Data. I look at growth as an operating system rather than a collection of campaigns or isolated targets.</p>
+<div class="grid">
+<div class="card"><h3>What I Do</h3><p>Connect market opportunity, proposition, demand generation, sales execution and revenue outcomes into one commercial view.</p></div>
+<div class="card"><h3>How I Work</h3><p>Start with diagnosis, identify the highest-impact constraints, align people around measurable priorities, then scale what works.</p></div>
+<div class="card"><h3>What I Bring</h3><p>Cross-functional experience across marketing, sales, growth, product-led initiatives, customer acquisition and team development.</p></div>
+<div class="card"><h3>What I Value</h3><p>Clarity, accountability, customer understanding, strong operating rhythms and developing people who can consistently move the numbers.</p></div>
+</div>
+</section>
 
 <section id="experience">
 <div class="section-label">Career Journey</div>
@@ -113,7 +132,7 @@ h2.section-title{font-size:34px}
 <div class="section-label">Let's Connect</div>
 <h2 class="section-title">Open to meaningful commercial growth opportunities.</h2>
 <p class="intro">For leadership roles across Sales, Marketing, Growth, Revenue and Go-to-Market.</p>
-<a class="btn" href="mailto:YOUR_EMAIL@example.com">Contact Me</a>
+<a class="btn" href="mailto:diptangshu.banerjee.in@gmail.com">Contact Me</a>
 </section>
 
 <footer>© Diptangshu Banerjee • Commercial Growth Leadership</footer>
