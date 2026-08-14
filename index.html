@@ -336,6 +336,144 @@ footer a{color:#aeb9ca;text-decoration:none}
   .flow{grid-template-columns:repeat(2,1fr)}
   .cta{padding:45px 25px}
 }
+
+
+/* SOCIAL PROOF — ADDED */
+#recommendations{
+  background:var(--soft);
+  overflow:hidden;
+}
+.recommendations-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.55fr);
+  gap:50px;
+  align-items:end;
+  margin-bottom:34px;
+}
+.recommendations-note{
+  margin:0;
+  color:var(--muted);
+  font-size:15px;
+}
+.recommendation-viewport{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  padding:10px 0 18px;
+}
+.recommendation-track{
+  display:flex;
+  width:max-content;
+  gap:24px;
+  padding-left:4vw;
+  animation:recommendationScroll 72s linear infinite;
+  will-change:transform;
+}
+.recommendation-track:hover,
+.recommendation-track:focus-within{
+  animation-play-state:paused;
+}
+.recommendation-card{
+  width:390px;
+  flex:0 0 390px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+}
+.recommendation-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 42px rgba(16,33,59,.12);
+  border-color:#cfd9e8;
+}
+.recommendation-image-wrap{
+  height:285px;
+  background:#eef2f7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.recommendation-image-wrap img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#eef2f7;
+}
+.recommendation-fallback{
+  display:none;
+  width:100%;
+  height:100%;
+  padding:28px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#71819a;
+  font-size:14px;
+  line-height:1.5;
+  background:linear-gradient(135deg,#eef2f7,#f8fafc);
+}
+.recommendation-fallback strong{
+  display:block;
+  color:var(--ink);
+  font-size:18px;
+  margin-bottom:7px;
+}
+.recommendation-meta{
+  padding:18px 20px 20px;
+  background:#fff;
+}
+.recommendation-meta strong{
+  display:block;
+  font-size:17px;
+  line-height:1.35;
+}
+.recommendation-meta span{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.45;
+}
+.recommendations-hint{
+  margin:18px 0 0;
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+}
+@keyframes recommendationScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-50% - 12px))}
+}
+
+/* Resume button — added without changing existing button styles */
+.hero-actions .btn-blue{
+  background:var(--blue);
+  color:#071225;
+  border:1px solid var(--blue);
+}
+.hero-actions .btn-blue:hover{
+  background:#a9c5ff;
+  border-color:#a9c5ff;
+}
+
+@media(max-width:900px){
+  .recommendations-head{grid-template-columns:1fr;gap:12px}
+  .recommendation-card{width:340px;flex-basis:340px}
+  .recommendation-image-wrap{height:250px}
+}
+@media(max-width:600px){
+  .recommendation-card{width:310px;flex-basis:310px}
+  .recommendation-image-wrap{height:225px}
+  .recommendation-track{gap:16px}
+}
+
 </style>
 </head>
 
@@ -350,6 +488,7 @@ footer a{color:#aeb9ca;text-decoration:none}
       <a href="#experience" onclick="closeMenu()">Experience</a>
       <a href="#system" onclick="closeMenu()">Growth System</a>
       <a href="#leadership" onclick="closeMenu()">Leadership</a>
+      <a href="#recommendations" onclick="closeMenu()">Social Proof</a>
       <a href="#contact" onclick="closeMenu()">Contact</a>
     </div>
   </div>
@@ -371,6 +510,7 @@ footer a{color:#aeb9ca;text-decoration:none}
       <div class="actions">
         <a class="btn btn-primary" href="#experience">View My Experience</a>
         <a class="btn btn-outline" href="#contact">Let's Connect</a>
+        <a class="btn btn-blue" href="Diptangshu_Banerjee_Resume.pdf" download>Download Resume</a>
       </div>
     </div>
 
@@ -580,6 +720,129 @@ footer a{color:#aeb9ca;text-decoration:none}
   </div>
 </section>
 
+
+<!-- SOCIAL PROOF — ADDED; upload the 8 PNG files to /recommendations/ on GitHub. -->
+<section id="recommendations">
+  <div class="container">
+    <div class="recommendations-head">
+      <div>
+        <span class="section-kicker">Social Proof</span>
+        <h2>What people I've worked with say.</h2>
+      </div>
+      <p class="recommendations-note">
+        Selected LinkedIn recommendations from clients, colleagues and collaborators across my professional journey.
+        Hover over the strip to pause. Click any recommendation to view the full image.
+      </p>
+    </div>
+  </div>
+
+  <div class="recommendation-viewport" aria-label="LinkedIn recommendations">
+    <div class="recommendation-track">
+      <a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/holly-brown.png" alt="LinkedIn recommendation from Holly Brown" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Holly Brown</strong>Upload <code>holly-brown.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/buddy-peacock.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/buddy-peacock.png" alt="LinkedIn recommendation from Buddy Peacock" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Buddy Peacock</strong>Upload <code>buddy-peacock.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Buddy Peacock, MCCT, PMP, CSM, SAMC</strong><span>Advisory Board Member • Client</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/ruth-kim-moebes.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/ruth-kim-moebes.png" alt="LinkedIn recommendation from Ruth Kim Moebes" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Ruth Kim Moebes</strong>Upload <code>ruth-kim-moebes.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Ruth Kim Moebes</strong><span>Senior Director, Integrated Marketing Operations</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/jim-pruitt.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/jim-pruitt.png" alt="LinkedIn recommendation from Jim Pruitt" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Jim Pruitt</strong>Upload <code>jim-pruitt.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Jim Pruitt, SMC, SPOC, ITIL</strong><span>Former teammate • Professional Training &amp; Education</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/lynne-warren.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/lynne-warren.png" alt="LinkedIn recommendation from Lynne Warren" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Lynne Warren</strong>Upload <code>lynne-warren.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Lynne Warren</strong><span>Former colleague • State Farm</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/corey-bailey.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/corey-bailey.png" alt="LinkedIn recommendation from Corey Bailey" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Corey Bailey</strong>Upload <code>corey-bailey.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Corey Bailey, PMP, ITILv3, SMC, SAMC</strong><span>Operations Director / Project Management / Training</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/magaline-harvey.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/magaline-harvey.png" alt="LinkedIn recommendation from Magaline Harvey" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Magaline Harvey</strong>Upload <code>magaline-harvey.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Magaline Harvey</strong><span>Project Queen • Scrum Master • Agile Consultant</span></div>
+      </a>
+
+      <a class="recommendation-card" href="recommendations/alexis-carnegie.png" target="_blank" rel="noopener">
+        <div class="recommendation-image-wrap">
+          <img src="recommendations/alexis-carnegie.png" alt="LinkedIn recommendation from Alexis Carnegie" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="recommendation-fallback"><div><strong>Alexis Carnegie</strong>Upload <code>alexis-carnegie.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
+        </div>
+        <div class="recommendation-meta"><strong>Alexis Carnegie PMP, PMI-ACP</strong><span>LCC Business School Academic Advisor</span></div>
+      </a>
+
+      <!-- Duplicate set for seamless scrolling -->
+      <a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/holly-brown.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/buddy-peacock.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/buddy-peacock.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Buddy Peacock, MCCT, PMP, CSM, SAMC</strong><span>Advisory Board Member • Client</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/ruth-kim-moebes.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/ruth-kim-moebes.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Ruth Kim Moebes</strong><span>Senior Director, Integrated Marketing Operations</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/jim-pruitt.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/jim-pruitt.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Jim Pruitt, SMC, SPOC, ITIL</strong><span>Former teammate • Professional Training &amp; Education</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/lynne-warren.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/lynne-warren.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Lynne Warren</strong><span>Former colleague • State Farm</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/corey-bailey.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/corey-bailey.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Corey Bailey, PMP, ITILv3, SMC, SAMC</strong><span>Operations Director / Project Management / Training</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/magaline-harvey.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/magaline-harvey.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Magaline Harvey</strong><span>Project Queen • Scrum Master • Agile Consultant</span></div>
+      </a>
+      <a class="recommendation-card" href="recommendations/alexis-carnegie.png" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="recommendation-image-wrap"><img src="recommendations/alexis-carnegie.png" alt="" loading="lazy"></div>
+        <div class="recommendation-meta"><strong>Alexis Carnegie PMP, PMI-ACP</strong><span>LCC Business School Academic Advisor</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="recommendations-hint"> • Hover to pause • Click any card to open the original image</p>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="cta">
@@ -591,6 +854,7 @@ footer a{color:#aeb9ca;text-decoration:none}
       <div class="actions">
         <a class="btn linkedin-btn" href="https://www.linkedin.com/in/diptangshubanerjee/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn email-btn" href="mailto:diptangshu.banerjee.in@gmail.com">Email Me</a>
+        <a class="btn btn-blue" href="Diptangshu_Banerjee_Resume.pdf" download>Download Resume</a>
       </div>
     </div>
   </div>
