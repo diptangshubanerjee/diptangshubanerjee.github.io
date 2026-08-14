@@ -453,12 +453,26 @@ footer a{color:#aeb9ca;text-decoration:none}
 }
 
 /* Resume button — added without changing existing button styles */
-.hero-actions .btn-blue{
+.actions .btn-blue{
   background:var(--blue);
   color:#071225;
   border:1px solid var(--blue);
+  box-shadow:0 8px 20px rgba(91,139,230,.18);
+  gap:8px;
 }
-.hero-actions .btn-blue:hover{
+.actions .btn-blue::before{
+  content:"↓";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:17px;
+  height:17px;
+  font-size:15px;
+  font-weight:900;
+  line-height:1;
+}
+
+.actions .btn-blue:hover{
   background:#a9c5ff;
   border-color:#a9c5ff;
 }
@@ -475,6 +489,119 @@ footer a{color:#aeb9ca;text-decoration:none}
 }
 
 </style>
+
+
+<!-- ADDITIONAL CAROUSEL + RESUME VISIBILITY OVERRIDES -->
+<style>
+/* Social Proof carousel: show 3 cards on desktop, 2 on medium screens, 1 on mobile. */
+.recommendations-carousel-shell{
+  position:relative;
+  width:100%;
+}
+.recommendation-viewport{
+  overflow:hidden;
+  padding:10px 64px 18px;
+  box-sizing:border-box;
+}
+.recommendation-track{
+  width:100%;
+  max-width:none;
+  gap:24px;
+  padding-left:0;
+  padding-right:0;
+  animation:none !important;
+  transform:translateX(0);
+  transition:transform .55s cubic-bezier(.22,.61,.36,1);
+}
+.recommendation-card{
+  width:calc((100% - 48px) / 3);
+  flex:0 0 calc((100% - 48px) / 3);
+  min-width:0;
+}
+.recommendation-image-wrap{
+  height:360px;
+}
+.recommendation-controls{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:5;
+}
+.recommendation-arrow{
+  pointer-events:auto;
+  width:44px;
+  height:44px;
+  border:1px solid #cbd6e6;
+  border-radius:50%;
+  background:rgba(255,255,255,.96);
+  color:#10213b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(16,33,59,.12);
+  transition:transform .2s ease,background .2s ease,border-color .2s ease;
+}
+.recommendation-arrow:hover{
+  transform:scale(1.06);
+  background:#fff;
+  border-color:#9fb1ca;
+}
+.recommendation-arrow:disabled{
+  opacity:.38;
+  cursor:not-allowed;
+  transform:none;
+}
+.recommendations-hint strong{
+  color:var(--ink);
+}
+
+/* Make the resume CTA consistently visible instead of being pushed/cropped. */
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+}
+.actions .btn-blue{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  min-width:176px;
+  min-height:48px;
+  padding:13px 18px;
+  white-space:nowrap;
+  position:relative;
+  z-index:2;
+}
+
+@media(max-width:1100px){
+  .recommendation-viewport{padding-left:58px;padding-right:58px}
+  .recommendation-card{
+    width:calc((100% - 24px) / 2);
+    flex-basis:calc((100% - 24px) / 2);
+  }
+  .recommendation-image-wrap{height:330px}
+}
+@media(max-width:600px){
+  .recommendation-viewport{padding-left:46px;padding-right:46px}
+  .recommendation-card{
+    width:100%;
+    flex-basis:100%;
+  }
+  .recommendation-image-wrap{height:300px}
+  .recommendation-controls{inset:0 4px}
+  .recommendation-arrow{width:38px;height:38px;font-size:21px}
+  .actions .btn-blue{width:100%;min-width:0}
+}
+</style>
+
 </head>
 
 <body>
@@ -736,11 +863,16 @@ footer a{color:#aeb9ca;text-decoration:none}
     </div>
   </div>
 
-  <div class="recommendation-viewport" aria-label="LinkedIn recommendations">
+  <div class="recommendations-carousel-shell">
+    <div class="recommendation-controls" aria-label="Recommendation controls">
+      <button class="recommendation-arrow recommendation-prev" type="button" aria-label="Previous recommendations">‹</button>
+      <button class="recommendation-arrow recommendation-next" type="button" aria-label="Next recommendations">›</button>
+    </div>
+    <div class="recommendation-viewport" aria-label="LinkedIn recommendations">
     <div class="recommendation-track">
-      <a class="recommendation-card" href="holly-brown.png" target="_blank" rel="noopener">
+      <a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener">
         <div class="recommendation-image-wrap">
-          <img src="holly-brown.png" alt="LinkedIn recommendation from Holly Brown" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <img src="recommendations/holly-brown.png" alt="LinkedIn recommendation from Holly Brown" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
           <div class="recommendation-fallback"><div><strong>Holly Brown</strong>Upload <code>holly-brown.png</code> to the <code>/recommendations/</code> folder in GitHub.</div></div>
         </div>
         <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span></div>
@@ -803,7 +935,7 @@ footer a{color:#aeb9ca;text-decoration:none}
       </a>
 
       <!-- Duplicate set for seamless scrolling -->
-      <a class="recommendation-card" href="holly-brown.png" target="_blank" rel="noopener" aria-hidden="true">
+      <a class="recommendation-card" href="recommendations/holly-brown.png" target="_blank" rel="noopener" aria-hidden="true">
         <div class="recommendation-image-wrap"><img src="recommendations/holly-brown.png" alt="" loading="lazy"></div>
         <div class="recommendation-meta"><strong>Holly Brown</strong><span>Operations Manager • Client</span></div>
       </a>
@@ -837,9 +969,10 @@ footer a{color:#aeb9ca;text-decoration:none}
       </a>
     </div>
   </div>
+  </div>
 
   <div class="container">
-    <p class="recommendations-hint"> • Hover to pause • Click any card to open the original image</p>
+    <p class="recommendations-hint">8 recommendations • Hover to pause • Click any card to open the original image</p>
   </div>
 </section>
 
@@ -874,6 +1007,78 @@ function toggleMenu(){
 function closeMenu(){
   document.getElementById('navLinks').classList.remove('open');
 }
+</script>
+
+
+<script>
+/* ADDITIONAL: manual + slow auto-advance for the Social Proof carousel. */
+(function(){
+  const viewport = document.querySelector('.recommendation-viewport');
+  const track = document.querySelector('.recommendation-track');
+  const prev = document.querySelector('.recommendation-prev');
+  const next = document.querySelector('.recommendation-next');
+  if(!viewport || !track || !prev || !next) return;
+
+  const cards = Array.from(track.querySelectorAll('.recommendation-card'));
+  let index = 0;
+  let timer = null;
+  let paused = false;
+
+  function visibleCount(){
+    if(window.innerWidth <= 600) return 1;
+    if(window.innerWidth <= 1100) return 2;
+    return 3;
+  }
+
+  function stepSize(){
+    const card = cards[0];
+    if(!card) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function maxIndex(){
+    const uniqueCount = new Set(cards.map(card => card.getAttribute('href'))).size;
+    return Math.max(0, uniqueCount - visibleCount());
+  }
+
+  function render(animate=true){
+    index = Math.max(0, Math.min(index, maxIndex()));
+    track.style.transitionDuration = animate ? '.55s' : '0s';
+    track.style.transform = 'translateX(' + (-index * stepSize()) + 'px)';
+    prev.disabled = false;
+    next.disabled = false;
+  }
+
+  function goNext(){
+    index = index >= maxIndex() ? 0 : index + 1;
+    render(true);
+  }
+
+  function goPrev(){
+    index = index <= 0 ? maxIndex() : index - 1;
+    render(true);
+  }
+
+  function startAuto(){
+    clearInterval(timer);
+    timer = setInterval(function(){
+      if(!paused) goNext();
+    }, 8000);
+  }
+
+  prev.addEventListener('click', function(){ goPrev(); startAuto(); });
+  next.addEventListener('click', function(){ goNext(); startAuto(); });
+
+  viewport.addEventListener('mouseenter', function(){ paused = true; });
+  viewport.addEventListener('mouseleave', function(){ paused = false; });
+  viewport.addEventListener('focusin', function(){ paused = true; });
+  viewport.addEventListener('focusout', function(){ paused = false; });
+
+  window.addEventListener('resize', function(){ render(false); });
+  render(false);
+  startAuto();
+})();
 </script>
 
 </body>
