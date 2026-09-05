@@ -105,7 +105,7 @@ h2{font-size:clamp(42px,5vw,64px);letter-spacing:-2px;margin:15px 0 20px}
 
 #projects{background:#fff}
 .projects-intro{max-width:850px;color:var(--text);font-size:17px}
-.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:42px}
 .project-card{position:relative;background:var(--paper);border:1px solid var(--line);border-top:2px solid var(--brass);padding:28px;min-height:430px;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .project-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--line-strong)}
 .project-number{color:var(--brass-deep);font-size:11px;font-weight:800;letter-spacing:2px}
@@ -309,11 +309,21 @@ footer{background:#09101b;color:#9da6b1;padding:28px 0;text-align:center;font-si
       <button class="project-link" type="button" data-open-project="funnel">Explore the workflow <span>→</span></button>
     </article>
 
+    <article class="project-card" data-project="intelligence">
+      <div class="project-number">04 — MARKETING INTELLIGENCE</div>
+      <h3>AI Marketing Funnel Intelligence</h3>
+      <p class="project-summary">A React-based marketing intelligence application built with Claude Artifacts that transforms raw campaign data into funnel insights, identifies performance bottlenecks, classifies campaign health, and provides actionable optimization recommendations.</p>
+      <div class="project-stack">
+        <span>Claude Artifacts</span><span>React/JSX</span><span>JavaScript</span><span>Excel/CSV</span>
+      </div>
+      <button class="project-link" type="button" data-open-project="intelligence">Explore the application <span>→</span></button>
+    </article>
+
   </div>
 
   <div class="project-bridge">
     <strong>From content → publishing → intelligence.</strong>
-    <span>These projects represent three connected layers of a modern marketing operating system: create the opportunity, operationalize distribution, then use performance data to identify what needs to change.</span>
+    <span>These projects represent connected layers of a modern marketing operating system: create the opportunity, operationalize distribution, then use performance data to identify what needs to change.</span>
   </div>
 </div>
 </section>
@@ -330,8 +340,8 @@ footer{background:#09101b;color:#9da6b1;padding:28px 0;text-align:center;font-si
 
     <p class="modal-lead" id="modalLead"></p>
 
-    <div class="modal-section-heading">WORKFLOW</div>
-    <div class="modal-workflow-image">
+    <div class="modal-section-heading" id="modalFlowHeading">WORKFLOW</div>
+    <div class="modal-workflow-image" id="modalFlowImageWrap">
       <img id="modalFlowImage" src="" alt="Project automation workflow">
     </div>
 
@@ -480,6 +490,28 @@ const projectData={
     skills:"Marketing Funnel Analysis • Growth Marketing • AI-Assisted Diagnosis • Marketing Automation • Structured AI Outputs • JSON Parsing • Campaign Optimization",
     flow:["Google Sheets","Aggregate","JSON","OpenAI","Parse","Iterate","Update"],
     flowImage:"marketing-funnel-intelligence-workflow.png", outputImage:"MarketingFunnel.png"
+  },
+  intelligence:{
+    number:"04 — MARKETING INTELLIGENCE",
+    title:"AI Marketing Funnel Intelligence & Decision-Support Dashboard",
+    lead:"An interactive marketing intelligence application built with Claude Artifacts and React that transforms raw campaign data into actionable funnel insights, identifies bottlenecks, and supports marketing decisions.",
+    why:"The project is an interactive marketing funnel intelligence dashboard that accepts raw daily marketing data through CSV or Excel upload, automatically aggregates performance by campaign, recalculates funnel metrics, and surfaces campaign-level performance insights. The application evaluates lead volume, funnel conversion, CPL, Lead-to-Enrolment, and stage-level conversion rates to identify inefficient campaigns and funnel leakage. It then presents campaign health, bottlenecks, priorities, diagnostics, and executive recommendations through a decision-support interface.",
+    value:"Turns raw marketing performance data into a visual decision-support system instead of requiring marketers to manually analyze spreadsheets. The dashboard helps identify which campaigns are performing efficiently, where funnel leakage is occurring, which campaigns require immediate attention, which channels have stronger unit economics, and where marketing teams should optimize before increasing spend — creating a repeatable framework for moving from marketing data to diagnosis, prioritization and action.",
+    steps:[
+      "Upload raw daily marketing data in CSV or Excel.",
+      "Automatically detect and process the uploaded dataset.",
+      "Aggregate daily records by campaign.",
+      "Recalculate funnel metrics and conversion rates.",
+      "Evaluate campaign health as Healthy / Watch / Critical.",
+      "Identify funnel bottlenecks and performance gaps.",
+      "Surface campaign-level diagnostic insights.",
+      "Prioritize campaigns requiring attention.",
+      "Generate executive-level recommendations.",
+      "Explore performance through an interactive dashboard."
+    ],
+    skills:"Marketing Analytics • Growth Marketing • Marketing Operations • Funnel Analysis • Decision Support • Data Transformation • AI-Assisted Diagnosis • Dashboard Design • Campaign Optimization",
+    flow:["Upload","Aggregate","Recalculate","Classify Health","Diagnose","Prioritize","Recommend"],
+    flowImage:null, outputImage:"ai-marketing-funnel-intelligence-dashboard.png"
   }
 };
 
@@ -492,6 +524,8 @@ const modalValue=document.getElementById("modalValue");
 const modalSteps=document.getElementById("modalSteps");
 const modalSkills=document.getElementById("modalSkills");
 const modalFlow=document.getElementById("modalFlow");
+const modalFlowHeading=document.getElementById("modalFlowHeading");
+const modalFlowImageWrap=document.getElementById("modalFlowImageWrap");
 const modalFlowImage=document.getElementById("modalFlowImage");
 const modalOutputImage=document.getElementById("modalOutputImage");
 const projectClose=document.getElementById("projectClose");
@@ -507,8 +541,15 @@ function openProject(key){
   modalSkills.textContent=d.skills;
   modalSteps.innerHTML=d.steps.map(step=>`<li>${step}</li>`).join("");
   modalFlow.innerHTML=d.flow.map(step=>`<span>${step}</span>`).join("");
-  modalFlowImage.src=d.flowImage;
-  modalFlowImage.alt=d.title + " automation workflow";
+  if(d.flowImage){
+    modalFlowHeading.style.display="";
+    modalFlowImageWrap.style.display="";
+    modalFlowImage.src=d.flowImage;
+    modalFlowImage.alt=d.title + " automation workflow";
+  }else{
+    modalFlowHeading.style.display="none";
+    modalFlowImageWrap.style.display="none";
+  }
   modalOutputImage.src=d.outputImage;
   modalOutputImage.alt=d.title + " business output in Google Sheets";
   projectModal.classList.add("open");
